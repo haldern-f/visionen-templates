@@ -1,0 +1,108 @@
+\documentclass{visionen}
+\ArticleStart{recto}
+
+% enable bold text globally:
+\let\bfseries\DesignBoldSeries
+
+
+\begin{document}
+
+% this is the default title format for a two-column article
+
+\ArticleHeading{LaTeX Article Template}{Your Name - and whatever you want to add to your byline}
+
+% uncomment the code below to enable a whole-page-spanning title format instead, similar to the "classic" VISIONEN article layout.
+
+%\twocolumn[
+% \ArticleHeadingWide{LaTeX Article Template for the Longer Titles Among Them All}{Your Name - and whatever you want to add to your byline}
+%]
+
+% if you want to reduce space here, use \vspace{-XXpt} (replace XX with 12-30)
+
+\OpeningParagraph{Start with a title and byline, then put the opening paragraph inside this command. It supplies the three-line initial and tracked opening words. The source of this short article demonstrates every shared feature.}
+
+Paragraphs are generally indented. However, the opening paragraph, as well the first paragraph after each heading (like the paragraph immediately below the next heading) is not.
+
+% if you don't want your sections to be numbered, use \section*{Section Name}
+\section{Limitations}
+
+Try to use \emph{italics} for text that you want to emphasize. Depending on the context, you could also use \textsc{small capitals}. \textbf{Bold} text for this font is rather thick, so don't use it unless you want to highlight something massive, not more than once per text-rich page (best: not more than once per spread).
+
+The title of the article is limited by default to only the left column of a two-column layout. In case you haven't tried it out yet, try commenting out the current article heading code and uncommenting the wide article heading code that comes directly after. 
+
+\subsection{How to work with this template}
+
+\begin{enumerate}
+  \item The class should be kept in the same folder as the article text. Fonts and images should be placed in a separate folder (see template folder structure).
+  \item Run \texttt{lualatex example.tex}. Alternatively, you can compile the document on Overleaf, just make sure to change the compiler to LuaLaTex under \texttt{File > Settings > Compiler}.
+\end{enumerate}
+
+\begin{itemize}
+  \item Lists have compact spacing.
+  \item The image wrapper reserves whole grid rows.
+\end{itemize}
+
+\noindent Shared TikZ styles supply vertex type, rounded strokes, and edge clearances:
+
+\GridBlock{\begin{tikzpicture}[math graph,x=24bp,y=18bp]
+  \node (a) at (0,0) {$a$};
+  \node (b) at (2,0) {$b$};
+  \node (c) at (1,1) {$c$};
+  \draw[graph edge] (a) -- (c) -- (b);
+  \draw[graph full edge] (a) -- (b);
+  \draw[relation rule] (-0.4,-0.5) -- (2.4,-0.5);
+\end{tikzpicture}}
+
+% i don't think anyone will use this but ok 
+\begin{Caption}{9bp}
+A three-vertex graph, with a 9 bp inset.\\*
+The image caption below uses no inset.
+\end{Caption}
+\pagebreak[0]
+
+% add an image here to see how it will look
+\GridBlock{\includegraphics[width=0.9\columnwidth]{images/put_images_into_images_folder.png}}
+
+\begin{Caption}{0bp}
+You can add captions to your images. Captions use an inset of 0 bp; verse can use 9 bp.
+\end{Caption}
+
+\section{Math and code}
+
+Write $f(x) = x^2$ inline. To display math in the center of the text body, you can follow this exmple:
+
+\GridMath{
+  \begin{aligned}
+    S_n &= 1 + 2 + \cdots + n \\
+        &= \frac{n(n+1)}{2}.
+  \end{aligned}
+}
+
+\noindent The CodeBlock class can be used to write code. The class supplies the appropriate font, theme, and wrapping:
+
+\begin{CodeBlock}{python}
+def triangular(n: int) -> int:
+    return n * (n + 1) // 2
+\end{CodeBlock}
+
+\noindent Choose another language:
+
+\begin{CodeBlock}{javascript}
+const triangular = n => n * (n + 1) / 2;
+\end{CodeBlock}
+
+\section{Page-level layout}
+
+You might have noticed that this page has a larger left margin than the previous one. It's because it's intended to be the right-side page. Generally, each article gets compiled with the assumption that it starts on the left-side page of a spread. However, as these LaTeX pages ultimately get pasted into Affinity, this margin can be re-adjusted after your article is finished anyway. So don't worry about this.
+
+\section*{Finishing with sources}
+
+Each source should be listed separately. The DOI command adds a link.
+
+\begin{GridReferences}
+  \item Lipski and Preparata (1981).
+  \textit{Efficient Algorithms for Finding Maximum Matchings in Convex Bipartite Graphs and Related Problems}.
+  \DOI{10.1007/bf00264533}
+\end{GridReferences}
+
+\end{document}

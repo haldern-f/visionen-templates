@@ -1,0 +1,40 @@
+\documentclass{visionen}
+\usepackage{graphicx} % inserting images
+\ArticleStart{recto}
+\begin{document}
+
+\ArticleHeading{Article Title}{Article Byline}
+%\vspace{-30bp}
+
+{\small\noindent\itshape Short abstract or introduction paragraph, if you don't want to use the fancy opening paragraph}
+
+\OpeningParagraph{Opening paragraph for good measure, in case you do want to use a fancy opening format for your article}
+
+\section*{Section without a number}
+
+\subsection*{Subsection without a number}
+Blabla
+
+\section{Section with a number}
+
+\subsection{Subsection with a number}
+Blabla
+
+\section{Figures}
+
+\GridBlock{\includegraphics[width=\columnwidth]{images/yourpicturehere.png}}
+
+\begin{Caption}{0bp}
+You can add captions to your images. Captions use an inset of 0 bp; verse can use 9 bp.
+\end{Caption}
+
+Blablabla final concluding sentences.
+
+\begin{GridReferences}
+  \item Author(s) (Year).
+  \textit{Name of publication and the publisher, if applicable. If the text is online without a DOI, just link it here as well. Write links directly, don't hide them behind titles. For example: \url{http://vis.ethz.ch}. Make sure to include http:// as well, or else the link will not work at all. You can also put DOIs to publications below.}
+  \DOI{10.1007/s10739-026-09866-7}
+\end{GridReferences}
+
+
+\end{document}
