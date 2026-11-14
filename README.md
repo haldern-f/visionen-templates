@@ -1,6 +1,6 @@
 # visionen-templates
 
-Collection of VISIONEN article templates. The PDFs were generated using the files in the latex directory.
+Collection of VISIONEN article templates. The PDFs were generated using the files in the latex directory. You can open the example .pdf files to see what an article generated with our templates would look like. 
 
 ## How to use the LaTeX templates
 
